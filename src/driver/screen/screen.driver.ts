@@ -4,10 +4,10 @@ import cuid from 'cuid'
 
 const screenDriver = Router()
 screenDriver.get('/', (req, res) => {
-  const fileName = `/temp/${cuid()}.jpg`
+  const fileName = `/tmp/${cuid()}.jpg`
   console.log('Screen Driver handler')
 
-  Screenshot('.' + fileName, { width: 1920, height: 1080, quality: 10 }, (err, complete) => {
+  Screenshot(fileName, { width: 1920, height: 1080, quality: 10 }, (err, complete) => {
     console.log('Screenshot,', fileName, err)
 
     if (complete) {
